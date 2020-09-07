@@ -5,7 +5,7 @@ import {
   FetchStatus,
   IFetchDataCompletedAction,
 } from './types';
-import { ISale, IRetailItem } from '../service/api';
+import { IRetailItem } from '../service/api';
 
 const initialState: RootState = {
   status: FetchStatus.Idle,

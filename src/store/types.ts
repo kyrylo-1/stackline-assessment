@@ -1,4 +1,4 @@
-import { ISale, IRetailItem } from '../service/api';
+import { IRetailItem } from '../service/api';
 
 export const actionTypes = {
   FETCH_DATA_START: 'FETCH_DATA_START',

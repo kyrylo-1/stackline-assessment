@@ -31,14 +31,21 @@ const App: React.FC<IAppProps> = (props) => {
   const retailItem =
     appState.retailItems?.length > 0 ? appState.retailItems[0] : undefined;
 
+  const sales = retailItem
+    ? retailItem.sales?.sort(
+        (a, b) =>
+          new Date(a.weekEnding).getTime() - new Date(b.weekEnding).getTime()
+      )
+    : undefined;
+
   return (
     <div className="app">
       <Header />
       <div className="app-content">
         <Panel retailItem={retailItem} />
         <div>
-          <RetailSales sales={retailItem?.sales} />
-          <SalesBoard sales={retailItem?.sales} />
+          <RetailSales sales={sales} />
+          <SalesBoard sales={sales} />
         </div>
       </div>
     </div>

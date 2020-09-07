@@ -1,7 +1,7 @@
 import apiData from '../assets/Webdev_data2.json';
 
 export interface ISale {
-  weekEnding: Date;
+  weekEnding: string;
   retailSales: number;
   wholesaleSales: number;
   unitsSold: number;

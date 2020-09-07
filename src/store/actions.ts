@@ -1,7 +1,7 @@
 import { actionTypes, RootState } from './types';
-import { fetchData, ISale, IRetailItem } from '../service/api';
-import { ThunkAction } from 'redux-thunk';
+import { fetchData, IRetailItem } from '../service/api';
 import { Action } from 'redux';
+import { ThunkAction } from 'redux-thunk';
 
 export const creators = {
   fetchDataStart: () => ({
