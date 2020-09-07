@@ -1,7 +1,23 @@
 import apiData from '../assets/Webdev_data2.json';
-import { ISales } from '../store/reducers';
 
-export const fetchData = (): Promise<ISales[]> =>
+export interface ISale {
+  weekEnding: Date;
+  retailSales: number;
+  wholesaleSales: number;
+  unitsSold: number;
+  retailerMargin: number;
+}
+
+export interface IRetailItem {
+  id: string;
+  title: string;
+  image: string;
+  subtitle: string;
+  tags: string[];
+  sales: ISale[];
+}
+
+export const fetchData = (): Promise<IRetailItem[]> =>
   new Promise((resolve) => {
-    setTimeout(() => resolve((apiData[0].sales as unknown) as ISales[]), 600);
+    setTimeout(() => resolve((apiData as unknown) as IRetailItem[]), 600);
   });

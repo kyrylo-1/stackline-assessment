@@ -7,6 +7,7 @@ import { SalesBoard } from '../SalesBoard/SalesBoard';
 import { RootState } from '../../store/types';
 import { AppState } from '../../store/store';
 import { Panel } from '../Panel/Panel';
+import { RetailSales } from '../RetailSales/RetailSales';
 
 interface IAppProps {
   appState: RootState;
@@ -27,13 +28,17 @@ const App: React.FC<IAppProps> = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const retailItem =
+    appState.retailItems?.length > 0 ? appState.retailItems[0] : undefined;
+
   return (
     <div className="app">
       <Header />
       <div className="app-content">
-        <Panel />
+        <Panel retailItem={retailItem} />
         <div>
-          <SalesBoard sales={appState.sales} />
+          <RetailSales sales={retailItem?.sales} />
+          <SalesBoard sales={retailItem?.sales} />
         </div>
       </div>
     </div>
@@ -45,4 +50,3 @@ const mapStateToProps = (state: AppState) => ({
 });
 
 export default connect(mapStateToProps, { getApiData })(App);
-// export default App;

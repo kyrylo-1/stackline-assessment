@@ -1,4 +1,4 @@
-import { ISales } from './reducers';
+import { ISale, IRetailItem } from '../service/api';
 
 export const actionTypes = {
   FETCH_DATA_START: 'FETCH_DATA_START',
@@ -14,7 +14,7 @@ export interface IFetchDataErrorAction {
 }
 export interface IFetchDataCompletedAction {
   type: typeof actionTypes.FETCH_DATA_COMPLETED;
-  data: ISales[];
+  data: IRetailItem[];
 }
 
 export type AppActionTypes =
@@ -31,5 +31,5 @@ export enum FetchStatus {
 
 export interface RootState {
   status: FetchStatus;
-  sales: ISales[];
+  retailItems: IRetailItem[];
 }

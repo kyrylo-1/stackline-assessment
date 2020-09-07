@@ -1,17 +1,19 @@
 import React from 'react';
-import { ISales } from '../../store/reducers';
-import './SalesBoard.css';
 import { format } from 'date-fns';
-interface ISalesBoardProps {
-  sales: ISales[];
-}
-const colums: string[] = [
+import './SalesBoard.css';
+import { ISale } from '../../service/api';
+
+const colums: readonly string[] = [
   'week ending',
   'retail sales',
   'wholesale sales',
   'unit sold',
   'retail margin',
 ];
+
+interface ISalesBoardProps {
+  sales: ISale[];
+}
 
 export const SalesBoard: React.FC<ISalesBoardProps> = (props) => {
   const { sales } = props;
@@ -27,7 +29,7 @@ export const SalesBoard: React.FC<ISalesBoardProps> = (props) => {
           );
         })}
       </div>
-      {sales.map((x, i) => {
+      {sales?.map((x, i) => {
         return (
           <div key={i} className="sales-row">
             <div>

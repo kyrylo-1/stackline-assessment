@@ -5,17 +5,11 @@ import {
   FetchStatus,
   IFetchDataCompletedAction,
 } from './types';
+import { ISale, IRetailItem } from '../service/api';
 
-export interface ISales {
-  weekEnding: Date;
-  retailSales: number;
-  wholesaleSales: number;
-  unitsSold: number;
-  retailerMargin: number;
-}
 const initialState: RootState = {
   status: FetchStatus.Idle,
-  sales: [] as ISales[],
+  retailItems: [] as IRetailItem[],
 };
 
 export function appReducer(
@@ -39,7 +33,7 @@ export function appReducer(
       return {
         ...state,
         status: FetchStatus.Completed,
-        sales: (action as IFetchDataCompletedAction).data,
+        retailItems: (action as IFetchDataCompletedAction).data,
       };
     }
     default:
