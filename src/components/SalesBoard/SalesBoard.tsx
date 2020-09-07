@@ -34,10 +34,10 @@ export const SalesBoard: React.FC<ISalesBoardProps> = (props) => {
           <div key={i} className="sales-row">
             <div>
               <span>{format(new Date(x.weekEnding), 'MM-dd-yy')}</span>
-              <span>{`$${x.retailSales}`}</span>
-              <span>{`$${x.wholesaleSales}`}</span>
+              <span>{`$${x.retailSales.toLocaleString()}`}</span>
+              <span>{`$${x.wholesaleSales.toLocaleString()}`}</span>
               <span>{x.unitsSold}</span>
-              <span>{`$${x.retailerMargin}`}</span>
+              <span>{`$${x.retailerMargin.toLocaleString()}`}</span>
             </div>
           </div>
         );
